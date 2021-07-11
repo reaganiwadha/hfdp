@@ -8,6 +8,12 @@ namespace SimUDuck
         {
             var duck = new Duck();
             duck.Display();
+
+            var redheadDuck = new RedheadDuck();
+            redheadDuck.Quack();
+
+            var mallardDuck = new MallardDuck();
+            mallardDuck.Fly();
         }
     }
 }

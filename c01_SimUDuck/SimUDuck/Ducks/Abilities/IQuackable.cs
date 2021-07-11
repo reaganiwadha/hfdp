@@ -1,4 +1,4 @@
-﻿namespace SimUDuck.Ducks.Behaviors
+﻿namespace SimUDuck.Ducks.Abilities
 {
     public interface IQuackable
     {

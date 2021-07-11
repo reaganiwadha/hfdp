@@ -1,13 +1,10 @@
 ﻿using System;
-using SimUDuck.Ducks.Behaviors;
+using SimUDuck.Ducks.Abilities;
 
 namespace SimUDuck.Ducks
 {
-    public class RubberDuck : Duck, IQuackable
+    public class RubberDuck : Duck
     {
-        public void Quack()
-        {
-            Console.WriteLine("Quack quack im a quacky rubber duck");
-        }
+        
     }
 }

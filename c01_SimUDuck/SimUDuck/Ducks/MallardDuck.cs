@@ -1,20 +1,15 @@
 ﻿using System;
-using SimUDuck.Ducks.Behaviors;
+using SimUDuck.Ducks.Abilities.Behaviors;
 
 namespace SimUDuck.Ducks
 {
-    public class MallardDuck : Duck, IFlyable, IQuackable
+    public class MallardDuck : Duck
     {
-        public void Quack()
+        public MallardDuck()
         {
-            Console.WriteLine("Quack quack im a mallard duck");
+            this.flyBehavior = new FlyWithWings();
         }
         
-        public void Fly()
-        {
-            Console.WriteLine("Im flying wooo");
-        }
-
         public override void Display()
         {
             Console.WriteLine("I am a Mallard Duck");

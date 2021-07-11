@@ -1,20 +1,15 @@
 ﻿using System;
-using SimUDuck.Ducks.Behaviors;
+using SimUDuck.Ducks.Abilities.Behaviors;
 
 namespace SimUDuck.Ducks
 {
-    public class RedheadDuck : Duck, IFlyable, IQuackable
+    public class RedheadDuck : Duck
     {
-        public void Fly()
+        public RedheadDuck()
         {
-            Console.WriteLine("Wooo im flyingggg");
+            quackBehavior = new NormalQuack();
         }
-
-        public void Quack()
-        {
-            Console.WriteLine("Woo im quacking quack quackkkkkk");
-        }
-
+        
         public override void Display()
         {
             Console.WriteLine("I am a Redhead Duck");

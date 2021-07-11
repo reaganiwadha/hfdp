@@ -1,20 +1,23 @@
 ﻿using System;
+using SimUDuck.Ducks.Abilities;
 
 namespace SimUDuck.Ducks
 {
     // Composition over inheritance
     public class Duck
     {
-        // public virtual void Quack()
-        // {
-        //     Console.WriteLine("Quack!");
-        // }
+        protected IQuackable quackBehavior;
+        protected IFlyable flyBehavior;
         
-        // public virtual void Fly()
-        // {
-        //     Console.WriteLine("I am free wooo");            
-        // }
-
+        public void Fly()
+        {
+            flyBehavior.Fly();
+        }
+        public void Quack()
+        {
+            quackBehavior.Quack();
+        }
+        
         public virtual void Display()
         {
             Console.WriteLine("I am a Duck");
