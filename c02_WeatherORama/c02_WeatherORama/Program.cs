@@ -7,7 +7,10 @@ namespace c02_WeatherORama
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var weatherData = new WeatherData();
+            var screen1 = new WeatherScreen(weatherData);
+            var screen2 = new WeatherScreen(weatherData);
+            weatherData.TryPublishEvent();
         }
     }
 }
