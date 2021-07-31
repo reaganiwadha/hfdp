@@ -8,7 +8,9 @@ namespace c02_WeatherORama
         {
             var weatherData = new WeatherData();
             var screen1 = new CurrentConditionDisplay(weatherData);
+            var screen2 = new StatisticsDisplay(weatherData);
             weatherData.SetMeasurements(50, 20, 30);
+            weatherData.SetMeasurements(25, 20, 30);
         }
     }
 }
