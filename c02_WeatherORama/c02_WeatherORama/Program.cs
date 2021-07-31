@@ -1,16 +1,14 @@
-﻿using System;
+﻿using c02_WeatherORama.Displays;
 
 namespace c02_WeatherORama
 {
-    // use C#'s events    
-    class Program
+    class WeatherORama
     {
         static void Main(string[] args)
         {
             var weatherData = new WeatherData();
-            var screen1 = new WeatherScreen(weatherData);
-            var screen2 = new WeatherScreen(weatherData);
-            weatherData.TryPublishEvent();
+            var screen1 = new CurrentConditionDisplay(weatherData);
+            weatherData.SetMeasurements(50, 20, 30);
         }
     }
 }

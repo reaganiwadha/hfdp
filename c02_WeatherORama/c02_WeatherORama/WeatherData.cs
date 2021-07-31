@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 namespace c02_WeatherORama
 {
@@ -10,52 +9,37 @@ namespace c02_WeatherORama
     
     public class WeatherUpdatedEventArgs : EventArgs
     {
-        public WeatherUpdatedEventArgs(string message)
+        public WeatherUpdatedEventArgs(float temperature, float humidity, float pressure)
         {
-            Message = message;
+            Temperature = temperature;
+            Humidity = humidity;
+            Pressure = pressure;
         }
         
-        public string Message { get; set; }
+        public float Temperature { get; set; }
+        public float Humidity { get; set; }
+        public float Pressure { get; set; }
     }
     
     public class WeatherData : IWeatherDataPublisher
     {
         public event EventHandler<WeatherUpdatedEventArgs> WeatherUpdatedEvent;
         
-        public void TryPublishEvent()
-        {
-            var task = Task.Run(async () =>
-            {
-                while (true)
-                {
-                    Console.WriteLine("Sending my hellos");
-                    OnWeatherUpdated(new WeatherUpdatedEventArgs("hello"));
-                    await Task.Delay(1000);
-                }
-            });
+        private float _temperature;
+        private float _humidity;
+        private float _pressure;
 
-            task.Wait();
+        public void SetMeasurements(float temperature, float humidity, float pressure)
+        {
+            _temperature = temperature;
+            _humidity = humidity;
+            _pressure = pressure;
+            OnWeatherUpdated();
         }
         
-        protected virtual void OnWeatherUpdated(WeatherUpdatedEventArgs e)
+        protected virtual void OnWeatherUpdated()
         {
-            WeatherUpdatedEvent?.Invoke(this, e);
-        }
-    }
-
-    public class WeatherScreen
-    {
-        private readonly string screenId;
-        
-        public WeatherScreen(IWeatherDataPublisher data)
-        {
-            screenId = Guid.NewGuid().ToString();
-            data.WeatherUpdatedEvent += HandleWeatherUpdatedEvent;
-        }
-
-        private void HandleWeatherUpdatedEvent(object sender, WeatherUpdatedEventArgs e)
-        {
-            Console.WriteLine($"{screenId} got {e.Message}");
+            WeatherUpdatedEvent?.Invoke(this, new WeatherUpdatedEventArgs(_temperature, _humidity, _pressure));
         }
     }
 }
