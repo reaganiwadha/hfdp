@@ -1,26 +1,17 @@
-﻿using System;
+namespace c04_PizzaStore{
+    public abstract class PizzaStore{
+        public abstract Pizza CreatePizza(string pizzaType);
+        public Pizza OrderPizza(string pizzaType) {
+            var pizza = this.CreatePizza(pizzaType);
 
-namespace c04_PizzaStore
-{
-    class PizzaStore
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Input your kind of pizza : ");
-            string pizzaType = Console.ReadLine();
-
-            var pizza = SimplePizzaFactory.CreatePizza(pizzaType);
-            if(pizza == null){
-                Console.WriteLine("Sorry, we don't have that kind of pizza :(");
-                return;
-            }
+            if(pizza == null) return null;
 
             pizza.Prepare();
             pizza.Bake();
             pizza.Cut();
             pizza.Box();
 
-            Console.WriteLine("Thank you for your purchase!");
+            return pizza;
         }
     }
 }
