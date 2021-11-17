@@ -1,13 +1,8 @@
-﻿namespace c06_RemoteControl.Devices
+﻿using c06_RemoteControl.Devices.Base;
+
+namespace c06_RemoteControl.Devices
 {
-    public class Light
+    public class Light : ToggleablePower
     {
-        private bool _state;
-
-        public void On()
-            => _state = true;
-
-        public void Off()
-            => _state = false;
     }
 }
