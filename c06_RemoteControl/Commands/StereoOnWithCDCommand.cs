@@ -15,5 +15,8 @@ namespace c06_RemoteControl.Commands
             _stereo.SetCD();
             _stereo.SetVolume(78);
         }
+
+        public void Undo()
+            => _stereo.Off();
     }
 }

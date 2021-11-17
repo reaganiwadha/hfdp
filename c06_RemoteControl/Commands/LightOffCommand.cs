@@ -11,5 +11,8 @@ namespace c06_RemoteControl.Commands
 
         public void Execute()
             => _light.Off();
+
+        public void Undo()
+            => _light.On();
     }
 }

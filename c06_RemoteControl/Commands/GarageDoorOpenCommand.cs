@@ -13,5 +13,8 @@ namespace c06_RemoteControl.Commands
 
         public void Execute()
             => _garageDoor.Open();
+
+        public void Undo()
+            => _garageDoor.Close();
     }
 }
