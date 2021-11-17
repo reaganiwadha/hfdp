@@ -8,11 +8,17 @@ namespace c06_RemoteControl
         static void Main(string[] args)
         {
             var remote = new SimpleRemoteControl();
+            
             var light = new Light();
+            var garageDoor = new GarageDoor();
+            
             var lightOnCommand = new LightOnCommand(light);
+            var garageOpen = new GarageDoorOpenCommand(garageDoor);
             
             remote.SetCommand(lightOnCommand);
-            light.On();
+            remote.ButtonWasPressed();
+            remote.SetCommand(garageOpen);
+            remote.ButtonWasPressed();
         }
     }
 }
