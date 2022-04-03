@@ -9,7 +9,11 @@ namespace c09_DinerPancakeCafe
             Vegetarian = vegetarian;
             Price = price;
         }
-        
+
+        public MenuItem()
+        {
+        }
+
         public string Name { get; init; }
         public string Description { get; init; }
         public bool Vegetarian { get; init; }

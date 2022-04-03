@@ -24,6 +24,6 @@ namespace c09_DinerPancakeCafe
             _menuItems.Add(item);
         }
 
-        public IIterator<MenuItem> CreateIterator() => new DinerMenuIterator(_menuItems);
+        public IIterator<MenuItem> CreateIterator() => new ListMenuIterator(_menuItems);
     }
 }

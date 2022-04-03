@@ -21,6 +21,6 @@ namespace c09_DinerPancakeCafe
         }
 
         public List<MenuItem> GetMenuItems() => _menuItems;
-        public IIterator<MenuItem> CreateIterator() => new PancakeMenuIterator(_menuItems);
+        public IIterator<MenuItem> CreateIterator() => new ListMenuIterator(_menuItems);
     }
 }
